@@ -28,12 +28,14 @@
                     <th>Length</th>
                     <th>Thickness</th>
                     <th>Width</th>
+                    <th>Mass</th>
                 </tr>
                 <tr>
                     <th>Outside</th>
                     <td><input class="num-input" type="number" id="length" name="length" value=""></td>
                     <td><input class="num-input" type="number" id="thickness" name="thickness" value=""></td>
                     <td><input class="num-input" type="number" id="width" name="width" value=""></td>
+                    <td id="mass"></td>
                 </tr>
                 <tr>
                     <th>Inside</th>
@@ -46,7 +48,34 @@
             <table id="material-inputs">
                 <tr>
                     <th>Material</th>
-                    <td><input class="num-input" type="text" id="material" name="material" value="" disabled></td>
+                    <th>Young's Modulo</th>
+                    <th>Yeald Strength</th>
+                    <th>Dencity</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select type="text" id="material" name="material" value="">
+                            <option value="pla">PLA</option>
+                            <option value="pla-t">PLA heat treated</option>
+                            <option value="pa12">PA12 (nylon)</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="copper">Copper</option>
+                            <option value="al-1060">Al 1060</option>
+                            <option value="al-1060-h12">Al 1060 H12</option>
+                            <option value="al-6060">Al 6060</option>
+                            <option value="al-6060-t6">Al 6060 T6</option>
+                            <option value="glass">Glass</option>
+                            <option value="s355">S355 Steel</option>
+                            <option value="wood-pine">Wood (Pine)</option>
+                            <option value="plywood">Plywood</option>
+                        </select>
+                    </td>
+                    <td id="y-mod">
+                    </td>
+                    <td id="y-strength">
+                    </td>
+                    <td id="dencity">
+                    </td>
                 </tr>
             </table>
             <br>
@@ -67,22 +96,139 @@
             <br>
             <img src="img/beam.png" alt="an example beam"></a>
         </div>
-        <h3 id="day-title">Case 1</h3>
+        <h3 id="case0-title">Case 0: Stretch</h3>
+        <div class="table-container">
+            <table id="case0">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>Secure factor</th>
+                </tr>
+                <tr>
+                    <th>6(max)</th>
+                    <td id="case0sigma"></td>
+                    <td>MPa</td>
+                    <td id="case0sigma-factor"></td>
+                </tr>
+                <tr>
+                    <th>y(max)</th>
+                    <td id="case0y"></td>
+                    <td>µm</td>
+                </tr>
+                <tr>
+                    <th>freq</th>
+                    <td id="case0hz"></td>
+                    <td>Hz</td>
+                </tr>
+            </table>
+            <img src="img/pull.png" alt="stretched beam"></a>
+        </div>
+        <h3 id="case1-title">Case 1: End bend</h3>
         <div class="table-container">
             <table id="case1">
                 <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
-                    <th>D</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>Secure factor</th>
                 </tr>
                 <tr>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
+                    <th>6(max)</th>
+                    <td id="case1sigma"></td>
+                    <td>MPa</td>
+                    <td id="case1sigma-factor"></td>
+                </tr>
+                <tr>
+                    <th>Q</th>
+                    <td id="case1q"></td>
+                    <td>MPa</td>
+                    <td id="case1q-factor"></td>
+                </tr>
+                <tr>
+                    <th>y(max)</th>
+                    <td id="case1y"></td>
+                    <td>µm</td>
+                </tr>
+                <tr>
+                    <th>freq</th>
+                    <td id="case1hz"></td>
+                    <td>Hz</td>
                 </tr>
             </table>
         </div>
+        <br>
+        <img src="img/bend.png" alt="bent beams"></a>
+        <br>
+        <h3 id="case2-title">Case 2: Middle bend</h3>
+        <div class="table-container">
+            <table id="case2">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>Secure factor</th>
+                </tr>
+                <tr>
+                    <th>6(max)</th>
+                    <td id="case2sigma"></td>
+                    <td>MPa</td>
+                    <td id="case2sigma-factor"></td>
+                </tr>
+                <tr>
+                    <th>Q</th>
+                    <td id="case2q"></td>
+                    <td>MPa</td>
+                    <td id="case2q-factor"></td>
+                </tr>
+                <tr>
+                    <th>y(max)</th>
+                    <td id="case2y"></td>
+                    <td>µm</td>
+                </tr>
+                <tr>
+                    <th>freq</th>
+                    <td id="case2hz"></td>
+                    <td>Hz</td>
+                </tr>
+            </table>
+        </div>
+        <h3 id="case1-title">Case: Buckling</h3>
+        <div class="table-container">
+            <table id="case-buckle">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>Secure factor</th>
+                </tr>
+                <tr>
+                    <th>Fn (I)</th>
+                    <td id="buckle1"></td>
+                    <td>N</td>
+                    <td id="buckle1-factor"></td>
+                </tr>
+                <tr>
+                    <th>Fn (II)</th>
+                    <td id="buckle2"></td>
+                    <td>N</td>
+                    <td id="buckle2-factor"></td>
+                </tr>
+                <tr>
+                    <th>Fn (III)</th>
+                    <td id="buckle3"></td>
+                    <td>N</td>
+                    <td id="buckle3-factor"></td>
+                </tr>
+                <tr>
+                    <th>Fn (IV)</th>
+                    <td id="buckle4"></td>
+                    <td>N</td>
+                    <td id="buckle4-factor"></td>
+                </tr>
+            </table>
+        </div>
+
         <br>
         <footer class="footer">
             <div class="footer-column">

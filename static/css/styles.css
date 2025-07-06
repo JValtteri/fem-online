@@ -54,6 +54,14 @@ input {
   font-size: large;
 }
 
+select {
+  background-color: #b0b0b0;
+  color: #000000;
+  border-radius: 6px;
+  padding: 2px;
+  font-size: large;
+}
+
 .num-input {
   width: 90px;
 }
