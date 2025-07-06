@@ -46,6 +46,10 @@ th {
   background-color: #309050;
 }
 
+td {
+  font-size: large;
+}
+
 input {
   background-color: #b0b0b0;
   color: #000000;
