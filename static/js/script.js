@@ -1,4 +1,4 @@
-import * as table from "./table.js"
+//import * as table from "./table.js"
 import * as cookie from "./cookie.js"
 
 const body                 = document.getElementById('body');
@@ -21,6 +21,8 @@ const case2table           = document.getElementById("case2");
 // Titles
 // Json Data
 
+let ok = false;
+
 /* Converts str to Base64, via uint8
  */
 function base64(str) {
@@ -30,22 +32,14 @@ function base64(str) {
 }
 
 function activateUI() {
-    someButton.removeAttribute("disabled");      // Enables a button
-    someTitle.setAttribute("hidden", "");        // Hide a title
+    //someButton.removeAttribute("disabled");      // Enables a button
+    //someTitle.setAttribute("hidden", "");        // Hide a title
 }
 
 /* Sends sets the city name for weather request
  */
 async function submitCalculation() {
-    if (cityInput.value && cityInput.value != "City") {
-        if (cookieConsent.checked) {
-            cookie.setCookie("length", base64(lengthInput.value), ttl*DAY);
-        }
-        let ok = await fetchWeatherData();
-        if (ok === true) {
-            activateUI();
-        }
-    }
+    activateUI();
 }
 
 function toggleFullscreen() {
@@ -74,6 +68,7 @@ function makeFullscreen() {
 // Buttons
 const submitButton  = document.getElementById("submit-button");
 const clearBtn      = document.getElementById('clear-button');
+const fullscreenBtn = document.getElementById('fullscreen');
 
 /* Submit button
  */
@@ -83,17 +78,19 @@ submitButton.addEventListener("click", () => {
 
 /* Clear button
  */
-reloadBtn.addEventListener("click", () => {
+clearBtn.addEventListener("click", () => {
     clearPage();
 });
 
 /* Search on Enter key
  */
+/*
 cityInput.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
         submitCalculation();
     }
 });
+*/
 
 /* "Remember Me" clicked
  */

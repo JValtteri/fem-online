@@ -11,14 +11,65 @@
     <div class="vertical-scroll">
         <h1>Fem Online</h1>
         <br>
-        <h2 id="city-name-title" hidden>Inputs</h2>
-        <div class="table-container">
-            <table id="days-forecast">
-            </table>
+        <div class="top-ui">
+            <div class="top-column">
+                <button id="submit-button" class="focused">Calculate</button>
+            </div>
+            <div class="top-column">
+                <button id="clear-button" disabled>Clear</button>
+                <button id="fullscreen">Fullscreen</button>
+            </div>
         </div>
-        <h3 id="day-title" hidden>Case 1</h3>
+        <h2 id="city-name-title">Inputs</h2>
         <div class="table-container">
-            <table id="case1" hidden>
+            <table id="inputs">
+                <tr>
+                    <td></td>
+                    <th>Length</th>
+                    <th>Thickness</th>
+                    <th>Width</th>
+                </tr>
+                <tr>
+                    <th>Outside</th>
+                    <td><input class="num-input" type="number" id="length" name="length" value=""></td>
+                    <td><input class="num-input" type="number" id="thickness" name="thickness" value=""></td>
+                    <td><input class="num-input" type="number" id="width" name="width" value=""></td>
+                </tr>
+                <tr>
+                    <th>Inside</th>
+                    <td></td>
+                    <td><input class="num-input" type="number" id="in-thickness" name="thickness" value=""></td>
+                    <td><input class="num-input" type="number" id="in-width" name="in-width" value=""></td>
+                </tr>
+            </table>
+            <br>
+            <table id="material-inputs">
+                <tr>
+                    <th>Material</th>
+                    <td><input class="num-input" type="text" id="material" name="material" value="" disabled></td>
+                </tr>
+            </table>
+            <br>
+            <table id="force-inputs">
+                <tr>
+                    <td></td>
+                    <th>F1</th>
+                    <th>F2</th>
+                    <th>M1</th>
+                </tr>
+                <tr>
+                    <th>Force</th>
+                    <td><input class="num-input" type="number" id="force1" name="force1" value=""></td>
+                    <td><input class="num-input" type="number" id="force2" name="force2" value=""></td>
+                    <td><input class="num-input" type="number" id="moment1" name="moment1" value="" disabled></td>
+                </tr>
+            </table>
+            <br>
+            <img src="img/beam.png" alt="an example beam"></a>
+        </div>
+        <h3 id="day-title">Case 1</h3>
+        <div class="table-container">
+            <table id="case1">
                 <tr>
                     <th>A</th>
                     <th>B</th>
@@ -29,7 +80,7 @@
                     <td>a</td>
                     <td>b</td>
                     <td>c</td>
-                </tr>                
+                </tr>
             </table>
         </div>
         <br>
@@ -50,10 +101,10 @@
                     <div class="tooltiptext">
                         <p>
                             By checking the box "Remember Me", you allow your browser
-                            to save your calculations between sessions. 
+                            to save your calculations between sessions.
                         </p>
                         <p>
-                            This is done by storing cookies containing the information you have 
+                            This is done by storing cookies containing the information you have
                             submitted. The cookies are not used for any other purpose.
                         </p>
                         <p>

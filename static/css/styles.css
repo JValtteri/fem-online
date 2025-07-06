@@ -20,7 +20,6 @@ h2, h3, h4 {
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -33,10 +32,6 @@ th, td {
   padding: 8px;
   text-align: left;
   text-align: center;
-}
-
-tr:nth-child(2) {
-  background-color: #7686A0 !important;
 }
 
 tr:nth-child(even) {
@@ -59,13 +54,22 @@ input {
   font-size: large;
 }
 
+.num-input {
+  width: 90px;
+}
+
 button {
-  background-color: #2e9f50;
+  background-color: #2e5f40;
   color: #f0f0f0;
   border-radius: 6px;
   padding: 5px;
   height: 35px;
   padding-inline: 8px;
+}
+
+.focused {
+  background-color: #2e9f50;
+  color: #f0f0f0;
 }
 
 button:disabled,
