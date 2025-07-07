@@ -36,13 +36,16 @@ const case1shearfactor     = document.getElementById("case1q-factor");
 const case1yeald           = document.getElementById("case1y");
 const case1hz              = document.getElementById("case1hz");
 
+const case2sigma           = document.getElementById("case2sigma");
+const case2sigmafactor     = document.getElementById("case2sigma-factor");
+const case2shear           = document.getElementById("case2q");
+const case2shearfactor     = document.getElementById("case2q-factor");
+const case2yeald           = document.getElementById("case2y");
+const case2hz              = document.getElementById("case2hz");
 
 const cookieConsent        = document.getElementById('accept');
 
 // Tables
-const case0table           = document.getElementById("case0");
-const case1table           = document.getElementById("case1");
-const case2table           = document.getElementById("case2");
 const tables               = Array.from(document.getElementsByClassName("calculations"));
 
 // Titles
@@ -162,6 +165,19 @@ function calculateBend() {
 }
 
 function calculateMidBend() {
+    const displacement = calc.midDisplacement(force, length, youngs, areamoment).toFixed(1);
+    const stress       = calc.midStress(force, length, thickness, areamoment).toFixed(1);
+    const shear        = calc.midShear(force, section).toFixed(1);
+    const frequency    = calc.midFrequency(length, dencity, youngs, areamoment, section).toFixed(1);
+    const stressFactor = calc.stressFactor(stress, yeald).toFixed(1);
+    const shearFactor  = calc.stressFactor(shear, yeald).toFixed(1);
+
+    case2sigma.innerText       = stress;
+    case2sigmafactor.innerText = stressFactor;
+    case2shear.innerText       = shear;
+    case2shearfactor.innerText = shearFactor;
+    case2yeald.innerText       = displacement;
+    case2hz.innerText          = frequency;
 }
 
 function toggleFullscreen() {

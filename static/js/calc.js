@@ -55,7 +55,7 @@ export function stretchFrequency(dencity, youngs, section) {
 }
 
 /*
- * Case 1
+ * Case 1: Bending (end)
  */
 
 export function bendDisplacement(force, length, youngs, areamoment) {
@@ -78,4 +78,27 @@ export function bendFrequency(length, dencity, youngs, areamoment, section) {
     return frequency;
 }
 
+/*
+ * Case 2: Bending (middle)
+ */
+
+export function midDisplacement(force, length, youngs, areamoment) {
+    const displacement = force*pow(length, 3)/48/youngs/areamoment;
+    return displacement;
+}
+
+export function midStress(force, length, thickness, areamoment) {
+    const stress = 1/2*length*force/2*(thickness/2)/areamoment;
+    return stress;
+}
+
+export function midShear(force, section) {
+    const shear = force/section/2;
+    return shear;
+}
+
+export function midFrequency(length, dencity, youngs, areamoment, section) {
+    const frequency = 1/(2*PI)*pow(4,694,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(dencity*section))*pow(10,6);
+    return frequency;
+}
 
