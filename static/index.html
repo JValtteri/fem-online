@@ -42,29 +42,20 @@
                 </tr>
             </table>
             <br>
-
             <div class="table-container">
             <table id="beam">
                 <tr>
-                    <td>Section</td>
+                    <th>Section</th>
                     <td class="output" id="section"></td>
                     <td>mm²</td>
                 </tr>
                 <tr>
-                    <td>Area Moment</td>
+                    <th>Area Moment</th>
                     <td class="output" id="areaMoment"></td>
                     <td>mm⁴</td>
                 </tr>
-            </table>
-            <br>
-            <table id="material-inputs">
                 <tr>
                     <th>Material</th>
-                    <th>Young's Modulo</th>
-                    <th>Yeald Strength</th>
-                    <th>Dencity</th>
-                </tr>
-                <tr>
                     <td>
                         <select type="text" id="material" name="material" value="">
                             <option value="pla">PLA</option>
@@ -82,26 +73,33 @@
                             <option value="plywood">Plywood</option>
                         </select>
                     </td>
-                    <td class="output" id="y-mod">
-                    </td>
-                    <td class="output" id="y-strength">
-                    </td>
-                    <td class="output" id="dencity">
-                    </td>
+                </tr>
+                <tr>
+                    <th>Young's Modulo</th>
+                    <td class="output" id="y-mod"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Yeald Strength</th>
+                    <td class="output" id="y-strength"></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th>Dencity</th>
+                    <td class="output" id="dencity"></td>
+                    <td>g/dm³</td>
                 </tr>
             </table>
             <br>
             <table id="force-inputs">
                 <tr>
-                    <td></td>
-                    <th hidden>F1</th>
-                    <th>F2</th>
-                    <th hidden>M1</th>
+                    <th>Force</th>
+                    <td><input class="num-input" type="number" id="force2" name="force2" value="10"></td>
+                    <td>N</td>
                 </tr>
                 <tr>
-                    <td>Force</td>
                     <td hidden><input class="num-input" type="number" id="force1" name="force1" value="" disabled></td>
-                    <td><input class="num-input" type="number" id="force2" name="force2" value=""></td>
                     <td hidden><input class="num-input" type="number" id="moment1" name="moment1" value="" disabled></td>
                 </tr>
             </table>
