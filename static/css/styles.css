@@ -50,6 +50,12 @@ td {
   font-size: large;
 }
 
+.warning {
+  background-color: #e0e010 !important;
+  color: #900000 !important;
+  border-radius: 6px;
+}
+
 input {
   background-color: #b0b0b0;
   color: #000000;
