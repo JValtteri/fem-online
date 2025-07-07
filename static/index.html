@@ -8,41 +8,42 @@
     <title>Fem-Online</title>
 </head>
 <body id="body">
-    <div class="vertical-scroll">
-        <h1>Fem Online</h1>
-        <div class="top-ui">
-            <div class="top-column">
-                <button id="clear-button" disabled>Clear</button>
-                <button id="fullscreen">Fullscreen</button>
-            </div>
+    <h1>Fem Online</h1>
+    <div class="top-ui">
+        <div class="top-column">
+            <button id="clear-button" disabled>Clear</button>
+            <button id="fullscreen">Fullscreen</button>
         </div>
-        <h2 id="city-name-title">Inputs</h2>
+    </div>
+    <h2 id="city-name-title">Inputs</h2>
+    <div class="table-container">
+        <table id="inputs">
+            <tr>
+                <td></td>
+                <th>Length</th>
+                <th>Thickness</th>
+                <th>Width</th>
+                <th>Mass</th>
+            </tr>
+            <tr>
+                <td>Outside</td>
+                <td><input class="num-input" type="number" min="1" value="10" id="length" name="length" value=""> mm</td>
+                <td><input class="num-input" type="number" min="1" value="10" id="thickness" name="thickness" value=""> mm</td>
+                <td><input class="num-input" type="number" min="1" value="10" id="width" name="width" value=""> mm</td>
+                <td class="output" id="mass"></td>
+            </tr>
+            <tr>
+                <td>Inside</td>
+                <td></td>
+                <td><input class="num-input" type="number" min="0" value="0" id="in-thickness" name="thickness" value=""> mm</td>
+                <td><input class="num-input" type="number" min="0" value="0" id="in-width" name="in-width" value=""> mm</td>
+                <td><button id="submit-button" class="focused">Calculate</button></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <div class="vertical-scroll">
         <div class="table-container">
-            <table id="inputs">
-                <tr>
-                    <td></td>
-                    <th>Length</th>
-                    <th>Thickness</th>
-                    <th>Width</th>
-                    <th>Mass</th>
-                </tr>
-                <tr>
-                    <td>Outside</td>
-                    <td><input class="num-input" type="number" min="1" value="10" id="length" name="length" value=""> mm</td>
-                    <td><input class="num-input" type="number" min="1" value="10" id="thickness" name="thickness" value=""> mm</td>
-                    <td><input class="num-input" type="number" min="1" value="10" id="width" name="width" value=""> mm</td>
-                    <td class="output" id="mass"></td>
-                </tr>
-                <tr>
-                    <td>Inside</td>
-                    <td></td>
-                    <td><input class="num-input" type="number" min="0" value="0" id="in-thickness" name="thickness" value=""> mm</td>
-                    <td><input class="num-input" type="number" min="0" value="0" id="in-width" name="in-width" value=""> mm</td>
-                    <td><button id="submit-button" class="focused">Calculate</button></td>
-                </tr>
-            </table>
-            <br>
-            <div class="table-container">
             <table id="beam">
                 <tr>
                     <th>Section</th>
@@ -106,6 +107,7 @@
             <br>
             <img src="img/beam.png" alt="an example beam"></a>
         </div>
+
         <h3 id="case0-title">Case 0: Stretch</h3>
         <div class="table-container">
             <table id="case0">
@@ -134,6 +136,7 @@
             </table>
             <img src="img/pull.png" alt="stretched beam"></a>
         </div>
+
         <h3 id="case1-title">Case 1: End bend</h3>
         <div class="table-container">
             <table id="case1">
@@ -166,9 +169,10 @@
                     <td>Hz</td>
                 </tr>
             </table>
+            <br>
+            <img src="img/bend.png" alt="bent beams"></a>
         </div>
-        <br>
-        <img src="img/bend.png" alt="bent beams"></a>
+
         <br>
         <h3 id="case2-title">Case 2: Middle bend</h3>
         <div class="table-container">
@@ -203,6 +207,7 @@
                 </tr>
             </table>
         </div>
+
         <h3 id="case1-title">Case: Buckling</h3>
         <div class="table-container">
             <table id="case-buckle">
@@ -237,11 +242,13 @@
                     <td class="output" id="buckle4-factor"></td>
                 </tr>
             </table>
+            <br>
+            <img src="img/buckle.png" alt="buckle modes"></a>
         </div>
 
         <br>
         <footer class="footer">
-            <div class="footer-column">
+            <div class="footer-column" hidden>
                 <h4 class="footer-title">Other</h4>
                 <div class="footer-text">something else</div>
             </div>
