@@ -7,24 +7,52 @@ const pi=Math.pi;
 const sqrt=Math.sqrt
 const pow=Math.pow
 
-export function calculateMass(length, a, dencity) {
-    return length*a*dencity;
+/*
+ * General calculations
+ */
+
+export function calculateSection(thickness, width, inThickness=0, inWidth=0) {
+    const section = (thickness*width)-(inThickness*inWidth);
+    return section;
 }
 
-export function stretchDisplacement(force, length, youngs, a) {
-    return force*length/youngs/a;
+export function calculateAreaMoment(thickness, width, inThickness=0, inWidth=0) {
+    const areaMoment = ( width*pow(thickness,3)-inWidth*pow(inThickness,3) )/12;
+    return areaMoment;
 }
 
-export function stretchStress(force, a) {
-    return force/a;
+export function calculateMass(length, section, dencity) {
+    const mass = length*section*dencity;
+    return mass;
 }
 
-export function stretchFrequency(dencity, youngs, a) {
-    return 1/pi* sqrt(youngs*dencity*pow(a,2));
+/*
+ * Specific calculations
+ */
+
+/*
+ * Case 0
+ */
+
+export function stretchDisplacement(force, length, youngs, section) {
+    const displacement = force*length/youngs/section
+    return displacement;
+}
+
+export function stretchStress(force, section) {
+    const stress = force/section
+    return stress;
+}
+
+export function stretchFrequency(dencity, youngs, section) {
+    const frequency = 1/pi*sqrt(youngs*dencity*pow(section,2));
+    console.log(frequency);
+    return frequency;
 }
 
 export function stretchStressFactor(stress, youngs) {
-    return youngs/stress;
+    const factor = youngs/stress;
+    return factor;
 }
 
 

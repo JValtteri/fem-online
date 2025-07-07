@@ -12,9 +12,6 @@
         <h1>Fem Online</h1>
         <div class="top-ui">
             <div class="top-column">
-                <button id="submit-button" class="focused">Calculate</button>
-            </div>
-            <div class="top-column">
                 <button id="clear-button" disabled>Clear</button>
                 <button id="fullscreen">Fullscreen</button>
             </div>
@@ -34,13 +31,14 @@
                     <td><input class="num-input" type="number" min="1" value="10" id="length" name="length" value=""></td>
                     <td><input class="num-input" type="number" min="1" value="10" id="thickness" name="thickness" value=""></td>
                     <td><input class="num-input" type="number" min="1" value="10" id="width" name="width" value=""></td>
-                    <td id="mass"></td>
+                    <td class="output" id="mass"></td>
                 </tr>
                 <tr>
                     <td>Inside</td>
                     <td></td>
                     <td><input class="num-input" type="number" min="0" value="0" id="in-thickness" name="thickness" value=""></td>
                     <td><input class="num-input" type="number" min="0" value="0" id="in-width" name="in-width" value=""></td>
+                    <td><button id="submit-button" class="focused">Calculate</button></td>
                 </tr>
             </table>
             <br>
@@ -69,11 +67,11 @@
                             <option value="plywood">Plywood</option>
                         </select>
                     </td>
-                    <td id="y-mod">
+                    <td class="output" id="y-mod">
                     </td>
-                    <td id="y-strength">
+                    <td class="output" id="y-strength">
                     </td>
-                    <td id="dencity">
+                    <td class="output" id="dencity">
                     </td>
                 </tr>
             </table>
@@ -87,7 +85,7 @@
                 </tr>
                 <tr>
                     <td>Force</td>
-                    <td><input class="num-input" type="number" id="force1" name="force1" value=""></td>
+                    <td><input class="num-input" type="number" id="force1" name="force1" value="" disabled></td>
                     <td><input class="num-input" type="number" id="force2" name="force2" value=""></td>
                     <td><input class="num-input" type="number" id="moment1" name="moment1" value="" disabled></td>
                 </tr>
@@ -106,18 +104,18 @@
                 </tr>
                 <tr>
                     <td>6(max)</td>
-                    <td id="case0sigma"></td>
+                    <td class="output" id="case0sigma"></td>
                     <td>MPa</td>
-                    <td id="case0sigma-factor"></td>
+                    <td class="output" id="case0sigma-factor"></td>
                 </tr>
                 <tr>
                     <td>y(max)</td>
-                    <td id="case0y"></td>
+                    <td class="output" id="case0y"></td>
                     <td>µm</td>
                 </tr>
                 <tr>
                     <td>freq</td>
-                    <td id="case0hz"></td>
+                    <td class="output" id="case0hz"></td>
                     <td>Hz</td>
                 </tr>
             </table>
@@ -134,24 +132,24 @@
                 </tr>
                 <tr>
                     <td>6(max)</td>
-                    <td id="case1sigma"></td>
+                    <td class="output" id="case1sigma"></td>
                     <td>MPa</td>
-                    <td id="case1sigma-factor"></td>
+                    <td class="output" id="case1sigma-factor"></td>
                 </tr>
                 <tr>
                     <td>Q</td>
-                    <td id="case1q"></td>
+                    <td class="output" id="case1q"></td>
                     <td>MPa</td>
-                    <td id="case1q-factor"></td>
+                    <td class="output" id="case1q-factor"></td>
                 </tr>
                 <tr>
                     <td>y(max)</td>
-                    <td id="case1y"></td>
+                    <td class="output" id="case1y"></td>
                     <td>µm</td>
                 </tr>
                 <tr>
                     <td>freq</td>
-                    <td id="case1hz"></td>
+                    <td class="output" id="case1hz"></td>
                     <td>Hz</td>
                 </tr>
             </table>
@@ -170,24 +168,24 @@
                 </tr>
                 <tr>
                     <td>6(max)</td>
-                    <td id="case2sigma"></td>
+                    <td class="output" id="case2sigma"></td>
                     <td>MPa</td>
-                    <td id="case2sigma-factor"></td>
+                    <td class="output" id="case2sigma-factor"></td>
                 </tr>
                 <tr>
                     <td>Q</th>
-                    <td id="case2q"></td>
+                    <td class="output" id="case2q"></td>
                     <td>MPa</td>
-                    <td id="case2q-factor"></td>
+                    <td class="output" id="case2q-factor"></td>
                 </tr>
                 <tr>
                     <td>y(max)</th>
-                    <td id="case2y"></td>
+                    <td class="output" id="case2y"></td>
                     <td>µm</td>
                 </tr>
                 <tr>
                     <td>freq</th>
-                    <td id="case2hz"></td>
+                    <td class="output" id="case2hz"></td>
                     <td>Hz</td>
                 </tr>
             </table>
@@ -203,27 +201,27 @@
                 </tr>
                 <tr>
                     <td>Fn (I)</th>
-                    <td id="buckle1"></td>
+                    <td class="output" id="buckle1"></td>
                     <td>N</td>
-                    <td id="buckle1-factor"></td>
+                    <td class="output" id="buckle1-factor"></td>
                 </tr>
                 <tr>
                     <td>Fn (II)</th>
-                    <td id="buckle2"></td>
+                    <td class="output" id="buckle2"></td>
                     <td>N</td>
-                    <td id="buckle2-factor"></td>
+                    <td class="output" id="buckle2-factor"></td>
                 </tr>
                 <tr>
                     <td>Fn (III)</th>
-                    <td id="buckle3"></td>
+                    <td class="output" id="buckle3"></td>
                     <td>N</td>
-                    <td id="buckle3-factor"></td>
+                    <td class="output" id="buckle3-factor"></td>
                 </tr>
                 <tr>
                     <td>Fn (IV)</th>
-                    <td id="buckle4"></td>
+                    <td class="output" id="buckle4"></td>
                     <td>N</td>
-                    <td id="buckle4-factor"></td>
+                    <td class="output" id="buckle4-factor"></td>
                 </tr>
             </table>
         </div>
