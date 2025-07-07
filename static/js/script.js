@@ -182,16 +182,6 @@ clearBtn.addEventListener("click", () => {
     clearAll();
 });
 
-/* Search on Enter key
- */
-/*
-cityInput.addEventListener('keydown', (event) => {
-    if (event.key === "Enter") {
-        submitCalculation();
-    }
-});
-*/
-
 /* "Remember Me" clicked
  */
 cookieConsent.addEventListener('click', () => {
@@ -213,6 +203,14 @@ body.addEventListener("click", () => {
         if (cookie.getCookie("fullscreen") === "true" ) {
             makeFullscreen();
         }
+    }
+});
+
+/* On Enter key
+ */
+body.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        submitCalculation();
     }
 });
 
