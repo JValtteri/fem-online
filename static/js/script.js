@@ -1,6 +1,7 @@
 //import * as table from "./table.js"
 import * as cookie from "./cookie.js"
 import * as calc from "./calc.js"
+import * as color from "./color.js"
 
 const body                 = document.getElementById('body');
 // Inputs
@@ -15,6 +16,7 @@ const forceInput           = document.getElementById('force2');
 
 // Outputs
 const outputs              = Array.from(document.getElementsByClassName("output"));
+const factors              = Array.from(document.getElementsByClassName("factor"));
 const mass                 = document.getElementById('mass');
 
 const youngsmod            = document.getElementById("y-mod");
@@ -94,6 +96,7 @@ function clearAll() {
     outputs.forEach(element => {
         element.innerText = '';
     });
+    color.removeColors(factors);
 }
 
 function showTables() {
@@ -138,12 +141,14 @@ async function submitCalculation() {
     activateUI();
     updateInputs();
     outputMaterialProperties();
+    color.removeColors(factors);         // Remove any old colors
     calculateBeamProperties();
     calculateMass();
     calculateStretch();
     calculateBend();
     calculateMidBend();
     calculateBucking();
+    color.setColors(factors);       // Set new colors
 }
 
 function calculateStretch() {

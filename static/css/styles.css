@@ -177,12 +177,20 @@ footer {
   background-color: #782818 !important;
 }
 
-.light-green {
+.yellow {
+  background-color: #787818 !important;
+}
+
+.green {
   background-color: #408d83 !important;
 }
 
 .dark-green {
   background-color: #1b4d46 !important;
+}
+
+.blue {
+  background-color: #20407b !important;
 }
 
 
@@ -195,9 +203,6 @@ footer {
   background-color: #34548f !important;
 }
 
-.dark-blue {
-  background-color: #20407b !important;
-}
 
 
 .white-blue {
