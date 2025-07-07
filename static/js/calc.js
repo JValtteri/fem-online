@@ -3,7 +3,7 @@
  * Contains all used math functions
  */
 
-const pi=Math.pi;
+const PI=Math.PI;
 const sqrt=Math.sqrt
 const pow=Math.pow
 
@@ -22,7 +22,7 @@ export function calculateAreaMoment(thickness, width, inThickness=0, inWidth=0) 
 }
 
 export function calculateMass(length, section, dencity) {
-    const mass = length*section*dencity;
+    const mass = length*section*dencity/1000/1000/1000; // kg
     return mass;
 }
 
@@ -45,8 +45,7 @@ export function stretchStress(force, section) {
 }
 
 export function stretchFrequency(dencity, youngs, section) {
-    const frequency = 1/pi*sqrt(youngs*dencity*pow(section,2));
-    console.log(frequency);
+    const frequency = 1/(2*PI)*sqrt(youngs*dencity*pow(section,2));
     return frequency;
 }
 

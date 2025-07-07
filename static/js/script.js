@@ -17,12 +17,15 @@ const momentInput          = document.getElementById('moment');
 const materialInput        = document.getElementById('moment');
 
 // Outputs
-const outputs              = document.getElementsByClassName("output");
+const outputs              = Array.from(document.getElementsByClassName("output"));
 const mass                 = document.getElementById('mass');
 
 const youngsmod            = document.getElementById("y-mod");
 const yealdstr             = document.getElementById("y-strength");
 const dencityOut           = document.getElementById("dencity");
+
+const sectionOut           = document.getElementById("section");
+const areaMomentOut        = document.getElementById("areaMoment");
 
 const case0sigma           = document.getElementById("case0sigma");
 const case0sigmafactor     = document.getElementById("case0sigma-factor");
@@ -69,7 +72,9 @@ function activateUI() {
 }
 
 function clearAll() {
-    outputs.innerText = '';
+    outputs.forEach(element => {
+        element.innerText = '';
+    });
     /*
     mass.value       = '';
     youngsmod.value  = '';
@@ -89,24 +94,30 @@ function updateInputs() {
     cavityThickness = cavityThicknessInput.value;
     cavityWidth     = cavityWidthInput.value;
     force           = forceInput.value;
-
-    section         = calc.calculateSection(thickness, width, cavityThickness, cavityWidth);
-    areamoment      = calc.calculateAreaMoment(thickness, width, cavityThickness, cavityWidth);
 }
 
 function calculateMass() {
-    mass.innerText = calc.calculateMass(length, section, dencity);
+    mass.innerText = calc.calculateMass(length, section, dencity).toFixed(3) + " kg";
 }
 
 function outputMaterialProperties() {
-    youngsmod.innerText  = youngs;
-    yealdstr.innerText   = yeald;
-    dencityOut.innerText = dencity;
+    youngsmod.innerText  = youngs.toFixed(1);
+    yealdstr.innerText   = yeald.toFixed(0);
+    dencityOut.innerText = dencity.toFixed(0);
+}
+
+function calculateBeamProperties() {
+    section         = calc.calculateSection(thickness, width, cavityThickness, cavityWidth);
+    areamoment      = calc.calculateAreaMoment(thickness, width, cavityThickness, cavityWidth);
+    sectionOut.innerText    = section.toFixed(0);
+    areaMomentOut.innerText = areamoment.toFixed(0);
 }
 
 async function submitCalculation() {
     activateUI();
     updateInputs();
+    outputMaterialProperties();
+    calculateBeamProperties();
     calculateMass();
     calculateStretch();
     calculateBend();
@@ -117,12 +128,12 @@ function calculateStretch() {
     const displacement = calc.stretchDisplacement(force, length, youngs, section);
     const stress       = calc.stretchStress(force, section);
     const frequency    = calc.stretchFrequency(dencity, youngs, section);
-    const stressFactor = calc.stretchStressFactor(stress, youngs);
+    const stressFactor = calc.stretchStressFactor(stress, yeald);
 
-    case0yeald.innerText = displacement;
-    case0sigma.innerText = stress;
-    case0hz.innerText    = frequency;
-    case0sigmafactor.innerText = stressFactor;
+    case0yeald.innerText = displacement.toFixed(1);
+    case0sigma.innerText = stress.toFixed(1);
+    case0hz.innerText    = frequency.toFixed(1);
+    case0sigmafactor.innerText = stressFactor.toFixed(1);
 }
 
 function calculateBend() {
