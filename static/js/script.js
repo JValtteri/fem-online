@@ -1,5 +1,6 @@
 //import * as table from "./table.js"
 import * as cookie from "./cookie.js"
+import * as calc from "./calc.js"
 
 const body                 = document.getElementById('body');
 // Inputs
@@ -36,11 +37,30 @@ function activateUI() {
     //someTitle.setAttribute("hidden", "");        // Hide a title
 }
 
-/* Sends sets the city name for weather request
- */
-async function submitCalculation() {
-    activateUI();
+function calculateMass() {
+    calc.calculateMass(lengthInput, a, dencity);
 }
+
+async function submitCalculation() {
+    //activateUI();
+    calculateStretch();
+    calculateBend();
+    calculateMidBend();
+}
+
+function calculateStretch() {
+    var displacement = calc.stretchDisplacement(forceInput, lengthInput, yongs, a);
+    var stress       = calc.stretchStress(forceInput, a);
+    var frequency    = calc.stretchFrequency(dencity, youngsm, a);
+    var stressFactor = calc.stretchStressFactor(stress, yongs);
+}
+
+function calculateBend() {
+}
+
+function calculateMidBend() {
+}
+
 
 function toggleFullscreen() {
     if (!document.fullscreenElement) {
