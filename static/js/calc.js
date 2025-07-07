@@ -7,6 +7,8 @@ const PI=Math.PI;
 const sqrt=Math.sqrt
 const pow=Math.pow
 
+var buckleforce = 0;
+
 /*
  * General calculations
  */
@@ -101,4 +103,31 @@ export function midFrequency(length, dencity, youngs, areamoment, section) {
     const frequency = 1/(2*PI)*pow(4,694,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(dencity*section))*pow(10,6);
     return frequency;
 }
+
+/*
+ * Case Buckling Modes
+ */
+
+export function bucklingMode1(length, youngs, areamoment) {
+    buckleforce = pow(PI,2)*youngs*areamoment/length;
+    const force = buckleforce/2;
+    return force;
+}
+
+export function bucklingMode2(length, youngs, areamoment) {
+    const force = buckleforce;
+    return force;
+}
+
+export function bucklingMode3(length, youngs, areamoment) {
+    const force = buckleforce/0.699;
+    return force;
+}
+
+export function bucklingMode4(length, youngs, areamoment) {
+    const force = buckleforce/0.5;
+    return force;
+}
+
+
 

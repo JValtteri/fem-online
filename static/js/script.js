@@ -43,6 +43,15 @@ const case2shearfactor     = document.getElementById("case2q-factor");
 const case2yeald           = document.getElementById("case2y");
 const case2hz              = document.getElementById("case2hz");
 
+const buckle1out           = document.getElementById("buckle1");
+const buckle1outfactor     = document.getElementById("buckle1-factor");
+const buckle2out           = document.getElementById("buckle2");
+const buckle2outfactor     = document.getElementById("buckle2-factor");
+const buckle3out           = document.getElementById("buckle3");
+const buckle3outfactor     = document.getElementById("buckle3-factor");
+const buckle4out           = document.getElementById("buckle4");
+const buckle4outfactor     = document.getElementById("buckle4-factor");
+
 const cookieConsent        = document.getElementById('accept');
 
 // Tables
@@ -134,6 +143,7 @@ async function submitCalculation() {
     calculateStretch();
     calculateBend();
     calculateMidBend();
+    calculateBucking();
 }
 
 function calculateStretch() {
@@ -178,6 +188,26 @@ function calculateMidBend() {
     case2shearfactor.innerText = shearFactor;
     case2yeald.innerText       = displacement;
     case2hz.innerText          = frequency;
+}
+
+function calculateBucking() {
+    const buckle1       = calc.bucklingMode1(length, youngs, areamoment).toFixed(0);
+    const buckle2       = calc.bucklingMode2(length, youngs, areamoment).toFixed(0);
+    const buckle3       = calc.bucklingMode3(length, youngs, areamoment).toFixed(0);
+    const buckle4       = calc.bucklingMode4(length, youngs, areamoment).toFixed(0);
+    const buckle1factor = calc.stressFactor(force, buckle1).toFixed(2);
+    const buckle2factor = calc.stressFactor(force, buckle2).toFixed(2);
+    const buckle3factor = calc.stressFactor(force, buckle3).toFixed(2);
+    const buckle4factor = calc.stressFactor(force, buckle4).toFixed(2);
+
+    buckle1out.innerText       = buckle1;
+    buckle1outfactor.innerText = buckle1factor;
+    buckle2out.innerText       = buckle2;
+    buckle2outfactor.innerText = buckle2factor;
+    buckle3out.innerText       = buckle3;
+    buckle3outfactor.innerText = buckle3factor;
+    buckle4out.innerText       = buckle4;
+    buckle4outfactor.innerText = buckle4factor;
 }
 
 function toggleFullscreen() {
