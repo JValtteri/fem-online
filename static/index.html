@@ -9,13 +9,7 @@
 </head>
 <body id="body">
     <h1>Fem Online</h1>
-    <div class="top-ui">
-        <div class="top-column">
-            <button id="clear-button" disabled>Clear</button>
-            <button id="fullscreen">Fullscreen</button>
-        </div>
-    </div>
-    <h2 id="city-name-title">Inputs</h2>
+
     <div class="table-container">
         <table id="inputs">
             <tr>
@@ -37,12 +31,24 @@
                 <td></td>
                 <td><input class="num-input" type="number" min="0" value="0" id="in-thickness" name="thickness" value=""> mm</td>
                 <td><input class="num-input" type="number" min="0" value="0" id="in-width" name="in-width" value=""> mm</td>
-                <td><button id="submit-button" class="focused">Calculate</button></td>
+            </tr>
+            <tr>
+                <th>Force</th>
+                <td><input class="num-input" type="number" id="force2" name="force2" value="10"> N</td>
             </tr>
         </table>
         <br>
     </div>
+
     <div class="vertical-scroll">
+
+        <div>
+            <button id="submit-button" class="focused">Calculate</button>
+            <button id="clear-button" disabled>Clear</button>
+            <button id="fullscreen" class="fullscreen">Fullscreen</button>
+        </div>
+        <br>
+
         <div class="table-container">
             <table id="beam">
                 <tr>
@@ -90,18 +96,6 @@
                     <th>Dencity</th>
                     <td class="output" id="dencity"></td>
                     <td>g/dm³</td>
-                </tr>
-            </table>
-            <br>
-            <table id="force-inputs">
-                <tr>
-                    <th>Force</th>
-                    <td><input class="num-input" type="number" id="force2" name="force2" value="10"></td>
-                    <td>N</td>
-                </tr>
-                <tr>
-                    <td hidden><input class="num-input" type="number" id="force1" name="force1" value="" disabled></td>
-                    <td hidden><input class="num-input" type="number" id="moment1" name="moment1" value="" disabled></td>
                 </tr>
             </table>
             <br>

@@ -11,10 +11,7 @@ const widthInput           = document.getElementById('width');
 const cavityThicknessInput = document.getElementById('in-thickness');
 const cavityWidthInput     = document.getElementById('in-width');
 
-//const forceInput           = document.getElementById('force1');
 const forceInput           = document.getElementById('force2');
-const momentInput          = document.getElementById('moment');
-const materialInput        = document.getElementById('moment');
 
 // Outputs
 const outputs              = Array.from(document.getElementsByClassName("output"));
@@ -35,6 +32,7 @@ const case0hz              = document.getElementById("case0hz");
 const cookieConsent        = document.getElementById('accept');
 
 // Tables
+const case0table           = document.getElementById("case0");
 const case1table           = document.getElementById("case1");
 const case2table           = document.getElementById("case2");
 
@@ -75,16 +73,6 @@ function clearAll() {
     outputs.forEach(element => {
         element.innerText = '';
     });
-    /*
-    mass.value       = '';
-    youngsmod.value  = '';
-    yealdstr.value   = '';
-    dencity.value    = '';
-    case0sigma       = '';
-    case0sigmafactor = '';
-    case0yeald       = '';
-    case0hz          = '';
-    */
 }
 
 function updateInputs() {
@@ -180,6 +168,7 @@ submitButton.addEventListener("click", () => {
  */
 clearBtn.addEventListener("click", () => {
     clearAll();
+    clearBtn.setAttribute("disabled", "");
 });
 
 /* "Remember Me" clicked
@@ -210,6 +199,7 @@ body.addEventListener("click", () => {
  */
 body.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
+        activateUI()
         submitCalculation();
     }
 });
