@@ -35,6 +35,7 @@ const cookieConsent        = document.getElementById('accept');
 const case0table           = document.getElementById("case0");
 const case1table           = document.getElementById("case1");
 const case2table           = document.getElementById("case2");
+const tables               = Array.from(document.getElementsByClassName("calculations"));
 
 // Titles
 // Json Data
@@ -66,12 +67,24 @@ function base64(str) {
 
 function activateUI() {
     clearBtn.removeAttribute("disabled");      // Enables a button
-    //someTitle.setAttribute("hidden", "");        // Hide a title
+    showTables();
 }
 
 function clearAll() {
     outputs.forEach(element => {
         element.innerText = '';
+    });
+}
+
+function showTables() {
+    tables.forEach(element => {
+        element.removeAttribute("hidden");
+    });
+}
+
+function hideTables() {
+    tables.forEach(element => {
+        element.setAttribute("hidden", "")
     });
 }
 
@@ -169,21 +182,8 @@ submitButton.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
     clearAll();
     clearBtn.setAttribute("disabled", "");
+    hideTables();
 });
-
-/* "Remember Me" clicked
- */
-cookieConsent.addEventListener('click', () => {
-    if (cookieConsent.checked) {
-        cookie.setCookie("length", base64(lengthInput.value), "");
-    }
-});
-
-/* "Fullscreen" clicked
- */
-fullscreenBtn.addEventListener("click", () => {
-    toggleFullscreen();
-})
 
 /* Clicked anywhere on document
  */
@@ -203,6 +203,32 @@ body.addEventListener('keydown', (event) => {
         submitCalculation();
     }
 });
+
+/* On Enter key
+ */
+body.addEventListener('keydown', (event) => {
+    if (event.key === "Delete") {
+        clearAll();
+        clearBtn.setAttribute("disabled", "");
+        hideTables();
+    }
+});
+
+
+/* "Remember Me" clicked
+ */
+cookieConsent.addEventListener('click', () => {
+    if (cookieConsent.checked) {
+        cookie.setCookie("length", base64(lengthInput.value), "");
+    }
+});
+
+/* "Fullscreen" clicked
+ */
+fullscreenBtn.addEventListener("click", () => {
+    toggleFullscreen();
+})
+
 
 // Check concent from cookie
 if (cookie.getCookie("consent") === "true" ) {
