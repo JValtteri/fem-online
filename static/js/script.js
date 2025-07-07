@@ -96,7 +96,6 @@ function clearAll() {
     outputs.forEach(element => {
         element.innerText = '';
     });
-    color.removeColors(factors);
 }
 
 function showTables() {
