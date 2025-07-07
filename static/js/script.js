@@ -29,6 +29,14 @@ const case0sigmafactor     = document.getElementById("case0sigma-factor");
 const case0yeald           = document.getElementById("case0y");
 const case0hz              = document.getElementById("case0hz");
 
+const case1sigma           = document.getElementById("case1sigma");
+const case1sigmafactor     = document.getElementById("case1sigma-factor");
+const case1shear           = document.getElementById("case1q");
+const case1shearfactor     = document.getElementById("case1q-factor");
+const case1yeald           = document.getElementById("case1y");
+const case1hz              = document.getElementById("case1hz");
+
+
 const cookieConsent        = document.getElementById('accept');
 
 // Tables
@@ -129,7 +137,7 @@ function calculateStretch() {
     const displacement = calc.stretchDisplacement(force, length, youngs, section);
     const stress       = calc.stretchStress(force, section);
     const frequency    = calc.stretchFrequency(dencity, youngs, section);
-    const stressFactor = calc.stretchStressFactor(stress, yeald);
+    const stressFactor = calc.stressFactor(stress, yeald);
 
     case0yeald.innerText = displacement.toFixed(1);
     case0sigma.innerText = stress.toFixed(1);
@@ -138,6 +146,19 @@ function calculateStretch() {
 }
 
 function calculateBend() {
+    const displacement = calc.bendDisplacement(force, length, youngs, areamoment).toFixed(1);
+    const stress       = calc.bendStress(force, length, thickness, areamoment).toFixed(1);
+    const shear        = calc.bendShear(force, section).toFixed(1);
+    const frequency    = calc.bendFrequency(length, dencity, youngs, areamoment, section).toFixed(1);
+    const stressFactor = calc.stressFactor(stress, yeald).toFixed(1);
+    const shearFactor  = calc.stressFactor(shear, yeald).toFixed(1);
+
+    case1sigma.innerText       = stress;
+    case1sigmafactor.innerText = stressFactor;
+    case1shear.innerText       = shear;
+    case1shearfactor.innerText = shearFactor;
+    case1yeald.innerText       = displacement;
+    case1hz.innerText          = frequency;
 }
 
 function calculateMidBend() {
