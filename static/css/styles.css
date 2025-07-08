@@ -51,8 +51,9 @@ td {
 }
 
 .warning {
-  background-color: #e0e010 !important;
-  color: #900000 !important;
+  border: 3px solid #e0e010 !important;
+  background-color: #050505 !important;
+  color: #e03020 !important;
   border-radius: 6px;
 }
 
