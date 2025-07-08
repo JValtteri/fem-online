@@ -11,6 +11,10 @@ body {
 
 h1 {
   color: #a0c0a0;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  margin-right: 20px;
+  white-space: nowrap;
 }
 
 h2, h3, h4 {
@@ -33,6 +37,16 @@ table {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  flex-wrap: nowrap;
 }
 
 img  {
@@ -91,11 +105,6 @@ select {
 
 .num-input {
   width: 90px;
-}
-
-.buttons {
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 button {
@@ -163,6 +172,13 @@ footer {
   .top-column {
       margin-bottom: 10px;
       width: auto;
+  }
+  .title {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .h1 {
+    margin-right: 8px;
   }
 }
 
