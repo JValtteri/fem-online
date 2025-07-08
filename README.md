@@ -52,7 +52,7 @@ As an example, think of a plank of wood laying flat. The plank is on a pirate sh
 
 After inputting these numbers you can press **Calculate** or **Enter on your keyboard.**
 
-[^*)]: This guide uses *"beam"* and *"plank"* interchangeably for ilustrative purposes.
+[^(*]: This guide uses *"beam"* and *"plank"* interchangeably for ilustrative purposes.
 
 ### 2. Reading the calculator output
 
