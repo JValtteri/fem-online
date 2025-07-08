@@ -2,7 +2,7 @@
 
 Web-app for quick strain calculations of beams and struts
 
-**ATTENTION! Not production ready. Missing major features**
+**Attention! Check your math! Use this calculator at your own risk.**
 
 ## Description
 
@@ -36,6 +36,8 @@ python -m http.server {PORT_NUMBER}
 ### 1. Enter the dimensions and material of the part you're analyzing
 
 As an example, think of a plank of wood laying flat. The plank is on a pirate ship and you are about to walk it:
+
+![plank](static/img/beam.png)
 
 - **Outside dimensions**:
     - **Length** is the length you have to walk on the plank
@@ -71,6 +73,8 @@ This case analyzes  what would happen if instead ow walking on the plank, everyt
 - **y Max** shows the absolute amount the plank has stretched from the weight hanging off it.
 - **Frequency** is the nominal frequency at which the plank would resonate in this direction. *(Work in progress!)*
 
+![plank](static/img/pull.png)
+
 #### Case 1: End bend
 
 This case looks at the case, where you have started to walk the plank. The calculation analyzes the section between you (the load) and the point where the plank is supported by other structure. This distance is the **Length** you input in the start.
@@ -82,6 +86,8 @@ This case looks at the case, where you have started to walk the plank. The calcu
     - Shearing strain can be reduced by making the **section** larger, that is, by making the dimensions larger or the hole smaller.
 - **y Max** shows the absolute amount the plank has **bent down** from the weight on it.
 - **Frequency** is the nominal frequency at which the plank would resonate in this direction. *(Work in progress!)*
+
+![bend](static/img/bend.png)
 
 #### Case 2: Middle bend
 
@@ -106,6 +112,8 @@ The modes are as follows: (see pictures for more detail)
 - Mode II: Both ends are effectively hinges. (Attachment with a single screw)
 - Mode III: One end is solidly attached and the other is effectively a hinge. (One end has multiple screws, but the other has only one screw.)
 - Mode IV: Both ends are solidly attached
+
+![buckle modes](static/img/buckle.png)
 
 ---
 
