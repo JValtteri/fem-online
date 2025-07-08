@@ -20,13 +20,12 @@ h2, h3, h4 {
 }
 
 table {
-  padding-right: 15px;
-  padding-bottom: 10px;
   border-spacing: 0px;
   border: 1px;
 }
 
 .table-container {
+  padding: 8px;
   overflow-x: scroll;
 }
 
@@ -34,6 +33,10 @@ table {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+img  {
+  padding-top: 8px;
 }
 
 th, td {
@@ -90,6 +93,11 @@ select {
   width: 90px;
 }
 
+.buttons {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 button {
   background-color: #2e5f40;
   color: #f0f0f0;
@@ -139,10 +147,11 @@ footer {
   color: #606060;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 630px) {
   .footer, .column-container {
       flex-direction: column;
       text-align: center;
+      align-items: center;
   }
   .footer-column {
       margin-bottom: 10px;
