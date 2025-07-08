@@ -20,11 +20,20 @@ h2, h3, h4 {
 }
 
 table {
-  border-collapse: collapse;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  border-spacing: 0px;
+  border: 1px;
 }
 
 .table-container {
   overflow-x: scroll;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 th, td {
@@ -131,7 +140,7 @@ footer {
 }
 
 @media (max-width: 500px) {
-  .footer {
+  .footer, .column-container {
       flex-direction: column;
       text-align: center;
   }
