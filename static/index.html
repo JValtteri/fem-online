@@ -17,14 +17,12 @@
                 <th>Length</th>
                 <th>Thickness</th>
                 <th>Width</th>
-                <th>Mass</th>
             </tr>
             <tr>
                 <td>Outside</td>
                 <td><input class="num-input" type="number" min="1" value="10" id="length" name="length" value=""> mm</td>
                 <td><input class="num-input" type="number" min="1" value="10" id="thickness" name="thickness" value=""> mm</td>
                 <td><input class="num-input" type="number" min="1" value="10" id="width" name="width" value=""> mm</td>
-                <td class="output" id="mass"></td>
             </tr>
             <tr>
                 <td>Inside</td>
@@ -35,6 +33,24 @@
             <tr>
                 <th>Force</th>
                 <td><input class="num-input" type="number" id="force2" name="force2" value="10"> N</td>
+                <th>Material</th>
+                <td>
+                    <select type="text" id="material" name="material" value="">
+                        <option value="pla">PLA</option>
+                        <option value="pla-t">PLA heat treated</option>
+                        <option value="pa12">PA12 (nylon)</option>
+                        <option value="bronze">Bronze</option>
+                        <option value="copper">Copper</option>
+                        <option value="al-1060">Al 1060</option>
+                        <option value="al-1060-h12">Al 1060 H12</option>
+                        <option value="al-6060">Al 6060</option>
+                        <option value="al-6060-t6">Al 6060 T6</option>
+                        <option value="glass">Glass</option>
+                        <option value="s355">S355 Steel</option>
+                        <option value="wood-pine">Wood (Pine)</option>
+                        <option value="plywood">Plywood</option>
+                    </select>
+                </td>
             </tr>
         </table>
         <br>
@@ -52,6 +68,11 @@
         <div class="table-container">
             <table id="beam">
                 <tr>
+                    <th>Mass</th>
+                    <td class="output" id="mass"></td>
+                    <td>kg</td>
+                </tr>
+                <tr>
                     <th>Section</th>
                     <td class="output" id="section"></td>
                     <td>mm²</td>
@@ -60,26 +81,6 @@
                     <th>Area Moment</th>
                     <td class="output" id="areaMoment"></td>
                     <td>mm⁴</td>
-                </tr>
-                <tr>
-                    <th>Material</th>
-                    <td>
-                        <select type="text" id="material" name="material" value="">
-                            <option value="pla">PLA</option>
-                            <option value="pla-t">PLA heat treated</option>
-                            <option value="pa12">PA12 (nylon)</option>
-                            <option value="bronze">Bronze</option>
-                            <option value="copper">Copper</option>
-                            <option value="al-1060">Al 1060</option>
-                            <option value="al-1060-h12">Al 1060 H12</option>
-                            <option value="al-6060">Al 6060</option>
-                            <option value="al-6060-t6">Al 6060 T6</option>
-                            <option value="glass">Glass</option>
-                            <option value="s355">S355 Steel</option>
-                            <option value="wood-pine">Wood (Pine)</option>
-                            <option value="plywood">Plywood</option>
-                        </select>
-                    </td>
                 </tr>
                 <tr>
                     <th>Young's Modulus</th>

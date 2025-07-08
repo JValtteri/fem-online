@@ -76,11 +76,12 @@ let force           = forceInput.value;
 let section = 0;    // Crossection of the beam
 let areamoment = 0; // a.k.a. I (mm^4)
 
-// Hard coded material
-var youngs = 0; //3.5;
-var yeald = 0; //35;
-var density = 0; //1240; // g/m^3
+let calculated = false;
 
+// Selected material's features
+var youngs = 0;
+var yeald = 0;
+var density = 0;
 
 /* Converts str to Base64, via uint8
  */
@@ -95,7 +96,7 @@ function activateUI() {
     showTables();
 }
 
-function clearAll() {
+function clearOutputs() {
     outputs.forEach(element => {
         element.innerText = '';
     });
@@ -123,7 +124,7 @@ function updateInputs() {
 }
 
 function calculateMass() {
-    mass.innerText = calc.calculateMass(length, section, density).toFixed(3) + " kg";
+    mass.innerText = calc.calculateMass(length, section, density).toFixed(3);
 }
 
 function getMaterialProperties(material) {
@@ -228,6 +229,21 @@ function calculateBucking() {
     buckle4outfactor.innerText = buckle4factor;
 }
 
+function update() {
+    updateInputs();
+    outputMaterialProperties();
+    calculateBeamProperties();
+    calculateMass();
+    if (calculated) {
+        color.removeColors(factors);         // Remove any old colors
+        calculateStretch();
+        calculateBend();
+        calculateMidBend();
+        calculateBucking();
+        color.setColors(factors);       // Set new colors
+    }
+}
+
 function toggleFullscreen() {
     if (!document.fullscreenElement) {
         makeFullscreen();
@@ -247,6 +263,19 @@ function makeFullscreen() {
     }
 }
 
+function submit() {
+    calculated = true;
+    activateUI();
+    update();
+}
+
+function clear() {
+    clearOutputs();
+    clearBtn.setAttribute("disabled", "");
+    hideTables();
+    calculated = false;
+}
+
 /*
  * Buttons and Events
  */
@@ -259,52 +288,45 @@ const fullscreenBtn = document.getElementById('fullscreen');
 /* Submit button
  */
 submitButton.addEventListener("click", () => {
-    submitCalculation();
+    submit();
 });
 
 /* Clear button
  */
 clearBtn.addEventListener("click", () => {
-    clearAll();
-    clearBtn.setAttribute("disabled", "");
-    hideTables();
-});
-
-/* Clicked anywhere on document
- */
-body.addEventListener("click", () => {
-     if (cookieConsent.checked) {
-        if (cookie.getCookie("fullscreen") === "true" ) {
-            makeFullscreen();
-        }
-    }
+    clear();
 });
 
 /* On Enter key
  */
 body.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
-        activateUI()
-        submitCalculation();
+        submit();
     }
 });
 
-/* On Enter key
+/* On Delete key
  */
 body.addEventListener('keydown', (event) => {
     if (event.key === "Delete") {
-        clearAll();
-        clearBtn.setAttribute("disabled", "");
-        hideTables();
+        clear();
     }
 });
 
 /* Material selection changed
  */
 materialInput.addEventListener("change", () => {
-
-    outputMaterialProperties();
+    update();
 })
+
+/* Any input value changed
+ */
+lengthInput.addEventListener("change", update);
+thicknessInput.addEventListener("change", update);
+widthInput.addEventListener("change", update);
+cavityThicknessInput.addEventListener("change", update);
+cavityWidthInput.addEventListener("change", update);
+forceInput.addEventListener("change", update);
 
 /* "Remember Me" clicked
  */
@@ -320,6 +342,15 @@ fullscreenBtn.addEventListener("click", () => {
     toggleFullscreen();
 })
 
+/* Clicked anywhere on document
+ */
+body.addEventListener("click", () => {
+     if (cookieConsent.checked) {
+        if (cookie.getCookie("fullscreen") === "true" ) {
+            makeFullscreen();
+        }
+    }
+});
 
 // Check concent from cookie
 if (cookie.getCookie("consent") === "true" ) {
@@ -335,3 +366,5 @@ if (cookieConsent.checked) {
     submitCalculation();
     activateUI();
 }
+
+update();
