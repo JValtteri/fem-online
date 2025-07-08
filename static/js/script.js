@@ -21,7 +21,7 @@ const mass                 = document.getElementById('mass');
 
 const youngsmod            = document.getElementById("y-mod");
 const yealdstr             = document.getElementById("y-strength");
-const dencityOut           = document.getElementById("dencity");
+const densityOut           = document.getElementById("density");
 
 const sectionOut           = document.getElementById("section");
 const areaMomentOut        = document.getElementById("areaMoment");
@@ -76,7 +76,7 @@ let areamoment = 0; // a.k.a. I (mm^4)
 // Hard coded material
 const youngs = 3.5;
 const yeald = 35;
-const dencity = 1240; // g/m^3
+const density = 1240; // g/m^3
 
 
 /* Converts str to Base64, via uint8
@@ -120,13 +120,13 @@ function updateInputs() {
 }
 
 function calculateMass() {
-    mass.innerText = calc.calculateMass(length, section, dencity).toFixed(3) + " kg";
+    mass.innerText = calc.calculateMass(length, section, density).toFixed(3) + " kg";
 }
 
 function outputMaterialProperties() {
     youngsmod.innerText  = youngs.toFixed(1);
     yealdstr.innerText   = yeald.toFixed(0);
-    dencityOut.innerText = dencity.toFixed(0);
+    densityOut.innerText = density.toFixed(0);
 }
 
 function calculateBeamProperties() {
@@ -153,7 +153,7 @@ async function submitCalculation() {
 function calculateStretch() {
     const displacement = calc.stretchDisplacement(force, length, youngs, section);
     const stress       = calc.stretchStress(force, section);
-    const frequency    = calc.stretchFrequency(dencity, youngs, section);
+    const frequency    = calc.stretchFrequency(density, youngs, section);
     const stressFactor = calc.stressFactor(stress, yeald);
 
     case0yeald.innerText = displacement.toFixed(1);
@@ -166,7 +166,7 @@ function calculateBend() {
     const displacement = calc.bendDisplacement(force, length, youngs, areamoment).toFixed(1);
     const stress       = calc.bendStress(force, length, thickness, areamoment).toFixed(1);
     const shear        = calc.bendShear(force, section).toFixed(1);
-    const frequency    = calc.bendFrequency(length, dencity, youngs, areamoment, section).toFixed(1);
+    const frequency    = calc.bendFrequency(length, density, youngs, areamoment, section).toFixed(1);
     const stressFactor = calc.stressFactor(stress, yeald).toFixed(1);
     const shearFactor  = calc.stressFactor(shear, yeald).toFixed(1);
 
@@ -182,7 +182,7 @@ function calculateMidBend() {
     const displacement = calc.midDisplacement(force, length, youngs, areamoment).toFixed(1);
     const stress       = calc.midStress(force, length, thickness, areamoment).toFixed(1);
     const shear        = calc.midShear(force, section).toFixed(1);
-    const frequency    = calc.midFrequency(length, dencity, youngs, areamoment, section).toFixed(1);
+    const frequency    = calc.midFrequency(length, density, youngs, areamoment, section).toFixed(1);
     const stressFactor = calc.stressFactor(stress, yeald).toFixed(1);
     const shearFactor  = calc.stressFactor(shear, yeald).toFixed(1);
 

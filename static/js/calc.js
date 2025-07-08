@@ -23,8 +23,8 @@ export function calculateAreaMoment(thickness, width, inThickness=0, inWidth=0) 
     return areaMoment;
 }
 
-export function calculateMass(length, section, dencity) {
-    const mass = length*section*dencity/1000/1000/1000; // kg
+export function calculateMass(length, section, density) {
+    const mass = length*section*density/1000/1000/1000; // kg
     return mass;
 }
 
@@ -51,8 +51,8 @@ export function stretchStress(force, section) {
     return stress;
 }
 
-export function stretchFrequency(dencity, youngs, section) {
-    const frequency = 1/(2*PI)*sqrt(youngs*dencity*pow(section,2));
+export function stretchFrequency(density, youngs, section) {
+    const frequency = 1/(2*PI)*sqrt(youngs*density*pow(section,2));
     return frequency;
 }
 
@@ -75,8 +75,8 @@ export function bendShear(force, section) {
     return shear;
 }
 
-export function bendFrequency(length, dencity, youngs, areamoment, section) {
-    const frequency = 1/(2*PI)*pow(1,875,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(dencity*section))*pow(10,6);
+export function bendFrequency(length, density, youngs, areamoment, section) {
+    const frequency = 1/(2*PI)*pow(1,875,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(density*section))*pow(10,6);
     return frequency;
 }
 
@@ -99,8 +99,8 @@ export function midShear(force, section) {
     return shear;
 }
 
-export function midFrequency(length, dencity, youngs, areamoment, section) {
-    const frequency = 1/(2*PI)*pow(4,694,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(dencity*section))*pow(10,6);
+export function midFrequency(length, density, youngs, areamoment, section) {
+    const frequency = 1/(2*PI)*pow(4,694,2)/pow(length,2)*sqrt(youngs*1000*areamoment/(density*section))*pow(10,6);
     return frequency;
 }
 
