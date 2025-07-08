@@ -2,6 +2,7 @@
 import * as cookie from "./cookie.js"
 import * as calc from "./calc.js"
 import * as color from "./color.js"
+import * as mat from "./material.js"
 
 const body                 = document.getElementById('body');
 // Inputs
@@ -13,6 +14,8 @@ const cavityThicknessInput = document.getElementById('in-thickness');
 const cavityWidthInput     = document.getElementById('in-width');
 
 const forceInput           = document.getElementById('force2');
+
+const materialInput        = document.getElementById('material');
 
 // Outputs
 const outputs              = Array.from(document.getElementsByClassName("output"));
@@ -74,9 +77,9 @@ let section = 0;    // Crossection of the beam
 let areamoment = 0; // a.k.a. I (mm^4)
 
 // Hard coded material
-const youngs = 3.5;
-const yeald = 35;
-const density = 1240; // g/m^3
+var youngs = 0; //3.5;
+var yeald = 0; //35;
+var density = 0; //1240; // g/m^3
 
 
 /* Converts str to Base64, via uint8
@@ -123,7 +126,18 @@ function calculateMass() {
     mass.innerText = calc.calculateMass(length, section, density).toFixed(3) + " kg";
 }
 
+function getMaterialProperties(material) {
+    return mat.materials[material];
+}
+
 function outputMaterialProperties() {
+    const materialName = materialInput.value;
+    const material = getMaterialProperties(materialName);
+    // Update the internal variables
+    youngs = material.youngs;
+    yeald = material.yield;
+    density = material.density;
+    // Update the UI values
     youngsmod.innerText  = youngs.toFixed(1);
     yealdstr.innerText   = yeald.toFixed(0);
     densityOut.innerText = density.toFixed(0);
@@ -139,7 +153,7 @@ function calculateBeamProperties() {
 async function submitCalculation() {
     activateUI();
     updateInputs();
-    outputMaterialProperties();
+    //outputMaterialProperties();
     color.removeColors(factors);         // Remove any old colors
     calculateBeamProperties();
     calculateMass();
@@ -285,6 +299,12 @@ body.addEventListener('keydown', (event) => {
     }
 });
 
+/* Material selection changed
+ */
+materialInput.addEventListener("change", () => {
+
+    outputMaterialProperties();
+})
 
 /* "Remember Me" clicked
  */
