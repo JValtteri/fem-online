@@ -30,3 +30,11 @@ python -m http.server {PORT_NUMBER}
 ```
 
 `PORT_NUMBER` should match whether you are using TLS or not; `80` for HTTP and `443` for HTTPS.
+
+
+---
+
+## See also
+
+#### Standalone Go http/https server backend:
+[JValtteri/go-server](https://github.com/JValtteri/go-server/tree/main)
