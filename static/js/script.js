@@ -62,9 +62,6 @@ const cookieConsent        = document.getElementById('accept');
 // Tables
 const tables               = Array.from(document.getElementsByClassName("calculations"));
 
-// Titles
-// Json Data
-
 // Variables
 let length          = lengthInput.value;
 let thickness       = thicknessInput.value;
@@ -149,20 +146,6 @@ function calculateBeamProperties() {
     areamoment      = calc.calculateAreaMoment(thickness, width, cavityThickness, cavityWidth);
     sectionOut.innerText    = section.toFixed(0);
     areaMomentOut.innerText = areamoment.toFixed(0);
-}
-
-async function submitCalculation() {
-    activateUI();
-    updateInputs();
-    //outputMaterialProperties();
-    color.removeColors(factors);         // Remove any old colors
-    calculateBeamProperties();
-    calculateMass();
-    calculateStretch();
-    calculateBend();
-    calculateMidBend();
-    calculateBucking();
-    color.setColors(factors);       // Set new colors
 }
 
 function calculateStretch() {
