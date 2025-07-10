@@ -14,7 +14,7 @@ The aim was to make a fast, intuitive and easy to use calculator for the most co
 
 - [**Go**](https://go.dev/) 1.19 or newer
 
-  **- or -** 
+  **- or -**
 
 - [**Python3**](https://www.python.org/downloads/)
 
@@ -56,11 +56,11 @@ After inputting these numbers you can press **Calculate** or **Enter on your key
 
 ### 2. Reading the calculator output
 
-The first group of outputs shows you: 
+The first group of outputs shows you:
 - **Section** the crossection of your beam. This, along with the material, defines the resistance of your beam to shearing forces. Think your pirate plank and the likelyhood that your foot goes through the plank snapping it in two at the spot you stepped on it.
 - **Area Moment** is an engineering unit. It describes the resistance of the chosen **profile** (dimensions and shape) against bending the beam. Larger area moment makes for a stiffer beam.
     - Curiously, if you took the pirate plank and turned it on it's side, the area moment would increase significantly, because the plank would be stiffer that way. It would make walking the plank even more difficult though.
-- **Young's Modulus** describes the stiffness of the **material** itself. 
+- **Young's Modulus** describes the stiffness of the **material** itself.
 - **Yield Strength** describes the strength of the **material** itself.
 - **Dencity** is describes the relation of mass to size of the **material**.
 
@@ -78,7 +78,7 @@ This case analyzes  what would happen if instead ow walking on the plank, everyt
 #### Case 1: End bend
 
 This case looks at the case, where you have started to walk the plank. The calculation analyzes the section between you (the load) and the point where the plank is supported by other structure. This distance is the **Length** you input in the start.
-- **Sigma Max** describes the **strain** the material endures as the plank or beam is **bent** by a **force** at the end of the beam. 
+- **Sigma Max** describes the **strain** the material endures as the plank or beam is **bent** by a **force** at the end of the beam.
     - The **force** is the one you set in a previous step.
     - The bending causes the material on the bottom face of the plank to contract and the material on the top edge to stretch. The **maximum strain** is measured at the point where the stretching is worst: half way between the load and the support.
     - **Sigma Max** can be reduced by **shortening** the beam, making it **thicker** or a **lot wider**.
@@ -87,12 +87,12 @@ This case looks at the case, where you have started to walk the plank. The calcu
 - **y Max** shows the absolute amount the plank has **bent down** from the weight on it.
 - **Frequency** is the nominal frequency at which the plank would resonate in this direction. *(Work in progress!)*
 
-![bend](static/img/bend.png)
+![bend case 1](static/img/bend1.png)
 
 #### Case 2: Middle bend
 
 This case looks at the case, where you are standing on the middle of the plank and a another friendly ship has parked along side and is helping keep the other end steady. The plank is therefore supported on both ends and you are standing in the middle. The load is analyzed between the two supports.  This distance is the **Length** you input in the start. The maximum bending strain is below your feet on both top and bottom faces of the plank.
-- **Sigma Max** describes the **strain** the material endures as the plank or beam is **bent** by a **force** at the **middle** of the beam, when **both ends are supported**. 
+- **Sigma Max** describes the **strain** the material endures as the plank or beam is **bent** by a **force** at the **middle** of the beam, when **both ends are supported**.
     - The **force** is the one you set in a previous step.
     - The bending causes the material on the bottom face of the plank to contract and the material on the top edge to stretch. The **maximum strain** is measured at the point where the stretching is worst: half way between the two supports.
     - **Sigma Max** can be reduced by **shortening** the beam, making it **thicker** or a **lot wider**.
@@ -100,6 +100,8 @@ This case looks at the case, where you are standing on the middle of the plank a
     - Shearing strain can be reduced by making the **section** larger, that is, by making the dimensions larger or the hole smaller.
 - **y Max** shows the absolute amount the plank has **bent down** from the weight on it.
 - **Frequency** is the nominal frequency at which the plank would resonate in this direction. *(Work in progress!)*
+
+![bend case 2](static/img/bend2.png)
 
 #### Case: Buckling
 
