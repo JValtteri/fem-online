@@ -8,15 +8,18 @@
     <title>Fem-Online</title>
 </head>
 <body id="body">
-    <div class="title">
-        <h1>Fem Online</h1>
-        <button id="submit-button" class="focused">Calculate</button>
-        <button id="clear-button" disabled>Clear</button>
-        <button id="fullscreen" class="fullscreen">Fullscreen</button>
+    <div class="column-container">
+        <div class="title-line">
+            <h1>Fem Online</h1>
+            <div class="buttons">
+                <button id="submit-button" class="focused">Calculate</button>
+                <button id="clear-button" disabled>Clear</button>
+                <button id="fullscreen" class="fullscreen">Fullscreen</button>
+            </div>
+        </div>
     </div>
-
-    <div class="table-container">
-        <table id="inputs">
+    <div class="inputs">
+        <table>
             <tr>
                 <td></td>
                 <th>Length</th>
@@ -58,204 +61,215 @@
                 </td>
             </tr>
         </table>
-        <br>
     </div>
 
     <div class="vertical-scroll">
-        <div class="column-container">
-            <div class="table-container">
-                <table id="beam">
-                    <tr>
-                        <th>Mass</th>
-                        <td class="output" id="mass"></td>
-                        <td>kg</td>
-                    </tr>
-                    <tr>
-                        <th>Section</th>
-                        <td class="output" id="section"></td>
-                        <td>mm²</td>
-                    </tr>
-                    <tr>
-                        <th>Area Moment</th>
-                        <td class="output" id="areaMoment"></td>
-                        <td>mm⁴</td>
-                    </tr>
-                </table>
+        <div class="data-row-container">
+            <div class="data-column">
+                <div class="data-row">
+                    <div class="table-container">
+                        <table id="beam">
+                            <tr>
+                                <th>Mass</th>
+                                <td class="output" id="mass"></td>
+                                <td>kg</td>
+                            </tr>
+                            <tr>
+                                <th>Section</th>
+                                <td class="output" id="section"></td>
+                                <td>mm²</td>
+                            </tr>
+                            <tr>
+                                <th>Area Moment</th>
+                                <td class="output" id="areaMoment"></td>
+                                <td>mm⁴</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table-container">
+                        <table id="physical">
+                            <tr>
+                                <th>Density</th>
+                                <td class="output" id="density"></td>
+                                <td>kg/m³</td>
+                            </tr>
+                            <tr>
+                                <th>Young's Modulus</th>
+                                <td class="output" id="y-mod"></td>
+                                <td>GPa</td>
+                            </tr>
+                            <tr>
+                                <th>Yield Strength</th>
+                                <td class="output" id="y-strength"></td>
+                                <td>MPa</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <img src="img/beam.png" alt="an example beam">
             </div>
-            <div class="table-container">
-                <table id="physical">
-                    <tr>
-                        <th>Density</th>
-                        <td class="output" id="density"></td>
-                        <td>kg/m³</td>
-                    </tr>
-                    <tr>
-                        <th>Young's Modulus</th>
-                        <td class="output" id="y-mod"></td>
-                        <td>GPa</td>
-                    </tr>
-                    <tr>
-                        <th>Yield Strength</th>
-                        <td class="output" id="y-strength"></td>
-                        <td>MPa</td>
-                    </tr>
-                </table>
-            </div>
-            <img src="img/beam.png" alt="an example beam"></a>
+            <table id="warning" class="warning">
+                <tr class="warning">
+                    <td>
+                        Warning!
+                        <br>
+                        Use this calculator at your own risk. You have the responsibility to check your own math.
+                        <br>
+                        This calculator has no warranty whatsoever!
+                    </td>
+                </tr>
+            </table>
         </div>
-
-        <table id="warning">
-            <tr class="warning">
-                <td>
-                    Warning!
-                    <br>
-                    Use this calculator at your own risk. You have the responsibility to check your own math.
-                    <br>
-                    This calculator has no warranty whatsoever!
-                </td>
-            </tr>
-        </table>
-
         <div class="column-container">
-            <div class="table-container calculations" hidden>
-                <h3 id="case0-title">Case 0: Stretch</h3>
-                <table id="case0">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <th>Safety Factor</th>
-                    </tr>
-                    <tr>
-                        <th>σ(max)</th>
-                        <td class="output" id="case0sigma"></td>
-                        <td>MPa</td>
-                        <td class="output factor" id="case0sigma-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>y(max)</th>
-                        <td class="output" id="case0y"></td>
-                        <td>µm</td>
-                    </tr>
-                    <tr>
-                        <th>freq</th>
-                        <td class="output" id="case0hz"></td>
-                        <td>Hz</td>
-                    </tr>
-                </table>
-                <br>
-                <img src="img/pull.png" alt="stretched beam"></a>
-            </div>
+            <div class="column">
+                <div class="row">
+                    <div class="table-container">
+                        <div class="calculations" hidden>
+                            <h3 id="case0-title">Case 0: Stretch</h3>
+                            <table id="case0">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Safety Factor</th>
+                                </tr>
+                                <tr>
+                                    <th>σ(max)</th>
+                                    <td class="output" id="case0sigma"></td>
+                                    <td>MPa</td>
+                                    <td class="output factor" id="case0sigma-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>y(max)</th>
+                                    <td class="output" id="case0y"></td>
+                                    <td>µm</td>
+                                </tr>
+                                <tr>
+                                    <th>freq</th>
+                                    <td class="output" id="case0hz"></td>
+                                    <td>Hz</td>
+                                </tr>
+                            </table>
+                            <img src="img/pull.png" alt="stretched beam">
+                        </div>
+                    </div>
 
-            <div class="table-container calculations" hidden>
-                <h3 id="case1-title">Case 1: End bend</h3>
-                <table id="case1">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <th>Safety Factor</th>
-                    </tr>
-                    <tr>
-                        <th>σ(max)</th>
-                        <td class="output" id="case1sigma"></td>
-                        <td>MPa</td>
-                        <td class="output factor" id="case1sigma-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>Q</th>
-                        <td class="output" id="case1q"></td>
-                        <td>MPa</td>
-                        <td class="output factor" id="case1q-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>y(max)</th>
-                        <td class="output" id="case1y"></td>
-                        <td>µm</td>
-                    </tr>
-                    <tr>
-                        <th>freq</th>
-                        <td class="output" id="case1hz"></td>
-                        <td>Hz</td>
-                    </tr>
-                </table>
-                <img src="img/bend1.png" alt="bent beams"></a>
-            </div>
+                    <div class="table-container">
+                        <div class="calculations" hidden>
+                            <h3 id="case1-title">Case 1: End bend</h3>
+                            <table id="case1">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Safety Factor</th>
+                                </tr>
+                                <tr>
+                                    <th>σ(max)</th>
+                                    <td class="output" id="case1sigma"></td>
+                                    <td>MPa</td>
+                                    <td class="output factor" id="case1sigma-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>Q</th>
+                                    <td class="output" id="case1q"></td>
+                                    <td>MPa</td>
+                                    <td class="output factor" id="case1q-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>y(max)</th>
+                                    <td class="output" id="case1y"></td>
+                                    <td>µm</td>
+                                </tr>
+                                <tr>
+                                    <th>freq</th>
+                                    <td class="output" id="case1hz"></td>
+                                    <td>Hz</td>
+                                </tr>
+                            </table>
+                            <img src="img/bend1.png" alt="bent beams">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="table-container">
+                        <div class="calculations" hidden>
+                            <h3 id="case2-title">Case 2: Middle bend</h3>
+                            <table id="case2">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Safety Factor</th>
+                                </tr>
+                                <tr>
+                                    <th>σ(max)</th>
+                                    <td class="output" id="case2sigma"></td>
+                                    <td>MPa</td>
+                                    <td class="output factor" id="case2sigma-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>Q</th>
+                                    <td class="output" id="case2q"></td>
+                                    <td>MPa</td>
+                                    <td class="output factor" id="case2q-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>y(max)</th>
+                                    <td class="output" id="case2y"></td>
+                                    <td>µm</td>
+                                </tr>
+                                <tr>
+                                    <th>freq</th>
+                                    <td class="output" id="case2hz"></td>
+                                    <td>Hz</td>
+                                </tr>
+                            </table>
+                            <img src="img/bend2.png" alt="bent beams">
+                        </div>
+                    </div>
 
-            <div class="table-container calculations" hidden>
-                <h3 id="case2-title">Case 2: Middle bend</h3>
-                <table id="case2">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <th>Safety Factor</th>
-                    </tr>
-                    <tr>
-                        <th>σ(max)</th>
-                        <td class="output" id="case2sigma"></td>
-                        <td>MPa</td>
-                        <td class="output factor" id="case2sigma-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>Q</th>
-                        <td class="output" id="case2q"></td>
-                        <td>MPa</td>
-                        <td class="output factor" id="case2q-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>y(max)</th>
-                        <td class="output" id="case2y"></td>
-                        <td>µm</td>
-                    </tr>
-                    <tr>
-                        <th>freq</th>
-                        <td class="output" id="case2hz"></td>
-                        <td>Hz</td>
-                    </tr>
-                </table>
-                <img src="img/bend2.png" alt="bent beams"></a>
-            </div>
-
-            <div class="table-container calculations" hidden>
-                <h3 id="case1-title">Case: Buckling</h3>
-                <table id="case-buckle">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <th>Safety Factor</th>
-                    </tr>
-                    <tr>
-                        <th>Fn (I)</th>
-                        <td class="output" id="buckle1"></td>
-                        <td>N</td>
-                        <td class="output factor" id="buckle1-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>Fn (II)</th>
-                        <td class="output" id="buckle2"></td>
-                        <td>N</td>
-                        <td class="output factor" id="buckle2-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>Fn (III)</th>
-                        <td class="output" id="buckle3"></td>
-                        <td>N</td>
-                        <td class="output factor" id="buckle3-factor"></td>
-                    </tr>
-                    <tr>
-                        <th>Fn (IV)</th>
-                        <td class="output" id="buckle4"></td>
-                        <td>N</td>
-                        <td class="output factor" id="buckle4-factor"></td>
-                    </tr>
-                </table>
-                <img src="img/buckle.png" alt="buckle modes" width="320"></a>
+                    <div class="table-container">
+                        <div class="calculations" hidden>
+                            <h3 id="case1-title">Case: Buckling</h3>
+                            <table id="case-buckle">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Safety Factor</th>
+                                </tr>
+                                <tr>
+                                    <th>Fn (I)</th>
+                                    <td class="output" id="buckle1"></td>
+                                    <td>N</td>
+                                    <td class="output factor" id="buckle1-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>Fn (II)</th>
+                                    <td class="output" id="buckle2"></td>
+                                    <td>N</td>
+                                    <td class="output factor" id="buckle2-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>Fn (III)</th>
+                                    <td class="output" id="buckle3"></td>
+                                    <td>N</td>
+                                    <td class="output factor" id="buckle3-factor"></td>
+                                </tr>
+                                <tr>
+                                    <th>Fn (IV)</th>
+                                    <td class="output" id="buckle4"></td>
+                                    <td>N</td>
+                                    <td class="output factor" id="buckle4-factor"></td>
+                                </tr>
+                            </table>
+                            <img src="img/buckle.png" alt="buckle modes" width="320"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <br>
         <footer class="footer">
             <div class="footer-column">
                 <h4 class="footer-title">Readme</h4>
