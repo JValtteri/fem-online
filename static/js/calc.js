@@ -128,6 +128,3 @@ export function bucklingMode4(length, youngs, areamoment) {
     const force = buckleforce/0.5;
     return force;
 }
-
-
-
