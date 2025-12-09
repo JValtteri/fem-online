@@ -1,0 +1,262 @@
+body {
+  font-family: sans-serif, Arial;
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+}
+
+.vertical-scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+h1 {
+  color: #a0c0a0;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+h2, h3, h4 {
+  color: #a0c0a0;
+  margin-top: 30;
+  margin-bottom: 10px;
+}
+
+table {
+  border-spacing: 0px;
+  border: 1px;
+}
+
+.table-container, .inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.column-container, .data-row-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.column, .data-column, .data-row, .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.title-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+img  {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+th, td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #565656;
+}
+
+tr:nth-child(odd) {
+  background-color: #606060;
+}
+
+th {
+  background-color: #309050;
+}
+
+td {
+  font-size: large;
+}
+
+.warning {
+  padding: 1px;
+  border: 3px solid #e0e010 !important;
+  background-color: #1f1f1f !important;
+  color: #e03020 !important;
+  border-radius: 6px !important;
+}
+
+input {
+  background-color: #b0b0b0;
+  color: #000000;
+  border-radius: 6px;
+  padding: 2px;
+  font-size: large;
+}
+
+.output {
+  background-color: #808080;
+}
+
+select {
+  background-color: #b0b0b0;
+  color: #000000;
+  border-radius: 6px;
+  padding: 2px;
+  font-size: large;
+}
+
+.num-input {
+  width: 90px;
+}
+
+button {
+  background-color: #2e5f40;
+  color: #f0f0f0;
+  border-radius: 6px;
+  padding: 5px;
+  height: 35px;
+  padding-inline: 8px;
+}
+
+.focused {
+  background-color: #2e9f50;
+  color: #f0f0f0;
+}
+
+button:disabled,
+button[disabled] {
+  color: #252525;
+  background-color: #606060;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-size: 14px;
+}
+.footer-column {
+  width: 30%;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-title {
+  color: #608060;
+  margin-bottom: 0px;
+}
+
+.footer-text {
+  color: #606060;
+}
+
+@media (max-width: 1383px) {
+  .column {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .data-column {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .column-container, .row, .footer {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+  }
+  .footer-column {
+      margin-bottom: 10px;
+      width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .data-row {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+  }
+  .title-line {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    flex-direction: column;
+  }
+  .h1 {
+    margin-right: 8px;
+  }
+  .inputs {
+    overflow-x: auto;
+    padding: 8px;
+    display: block;
+  }
+}
+
+.tooltip-trigger {
+  border-bottom: 1px dotted #ffffff;
+  width: max-content;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  justify-content: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #233f27;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.red {
+  background-color: #782818 !important;
+}
+
+.yellow {
+  background-color: #787818 !important;
+}
+
+.green {
+  background-color: #408d83 !important;
+}
+
+.dark-green {
+  background-color: #1b4d46 !important;
+}
+
+.blue {
+  background-color: #20407b !important;
+}
